@@ -5,7 +5,7 @@ const app = express();
 app.use(cors());
 
 const server = require("http").Server(app);
-const io = require("socket.io")(server);
+const io = require("socket.io")(server, { cors: { origin: "*" } });
 
 io.use(cors());
 
@@ -22,9 +22,6 @@ app.get("/rooms/:id", function (req, res) {
   };
 
   res.json(obj);
-  res.header({
-    "Access-Control-Allow-Origin": "*",
-  });
 });
 
 app.post("/rooms", function (req, res) {
@@ -42,16 +39,11 @@ app.post("/rooms", function (req, res) {
 
   if (rooms.get(roomId).get("password") !== password) {
     res.status(403).json({ message: "Invalid password" });
-    res.header({
-      "Access-Control-Allow-Origin": "*",
-    });
+
     return;
   }
 
   res.send();
-  res.header({
-    "Access-Control-Allow-Origin": "*",
-  });
 });
 
 io.on("connection", (socket) => {
