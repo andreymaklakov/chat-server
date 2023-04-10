@@ -1,0 +1,24 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "chat",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "serve": "nodemon index.js"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "Andrejs Maklakovs <andrej.maklakov@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "express": "^4.18.2",
+    "socket.io": "^4.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
