@@ -7,8 +7,6 @@ app.use(cors());
 const server = require("http").Server(app);
 const io = require("socket.io")(server, { cors: { origin: "*" } });
 
-io.use(cors());
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
